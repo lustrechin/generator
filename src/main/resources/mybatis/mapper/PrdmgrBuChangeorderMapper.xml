@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanzh.mapper.PrdmgrBuChangeorderMapper">
+  <resultMap id="BaseResultMap" type="com.lanzh.model.PrdmgrBuChangeorder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="change_code" jdbcType="VARCHAR" property="changeCode" />
+    <result column="prd_type" jdbcType="TINYINT" property="prdType" />
+    <result column="project_code" jdbcType="VARCHAR" property="projectCode" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="source_type" jdbcType="TINYINT" property="sourceType" />
+    <result column="req_order" jdbcType="VARCHAR" property="reqOrder" />
+    <result column="defect_order" jdbcType="VARCHAR" property="defectOrder" />
+    <result column="task" jdbcType="VARCHAR" property="task" />
+    <result column="change_system" jdbcType="VARCHAR" property="changeSystem" />
+    <result column="replenish_change_flag" jdbcType="BIT" property="replenishChangeFlag" />
+    <result column="change_type" jdbcType="TINYINT" property="changeType" />
+    <result column="replenish_change_type" jdbcType="TINYINT" property="replenishChangeType" />
+    <result column="prd_mode" jdbcType="TINYINT" property="prdMode" />
+    <result column="involved_trade_remold" jdbcType="BIT" property="involvedTradeRemold" />
+    <result column="applicant" jdbcType="VARCHAR" property="applicant" />
+    <result column="applicant_name" jdbcType="VARCHAR" property="applicantName" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+    <result column="dept" jdbcType="VARCHAR" property="dept" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="window_date" jdbcType="DATE" property="windowDate" />
+    <result column="window_type" jdbcType="TINYINT" property="windowType" />
+    <result column="urgent_flag" jdbcType="BIT" property="urgentFlag" />
+    <result column="cause" jdbcType="VARCHAR" property="cause" />
+    <result column="develop_version" jdbcType="VARCHAR" property="developVersion" />
+    <result column="version_status" jdbcType="TINYINT" property="versionStatus" />
+    <result column="test_report" jdbcType="VARCHAR" property="testReport" />
+    <result column="risk_assess_report" jdbcType="VARCHAR" property="riskAssessReport" />
+    <result column="online_process" jdbcType="VARCHAR" property="onlineProcess" />
+    <result column="verify_report" jdbcType="VARCHAR" property="verifyReport" />
+    <result column="receiving_report" jdbcType="VARCHAR" property="receivingReport" />
+    <result column="other_doc" jdbcType="VARCHAR" property="otherDoc" />
+    <result column="deploy_situation" jdbcType="TINYINT" property="deploySituation" />
+    <result column="special_application" jdbcType="VARCHAR" property="specialApplication" />
+    <result column="involved_org" jdbcType="TINYINT" property="involvedOrg" />
+    <result column="special_approval_type" jdbcType="TINYINT" property="specialApprovalType" />
+    <result column="project_type" jdbcType="TINYINT" property="projectType" />
+    <result column="special_approval_cause" jdbcType="VARCHAR" property="specialApprovalCause" />
+    <result column="involved_account_flag" jdbcType="BIT" property="involvedAccountFlag" />
+    <result column="online_time" jdbcType="TIMESTAMP" property="onlineTime" />
+    <result column="strategic_plan_type" jdbcType="TINYINT" property="strategicPlanType" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="high_voltage_flag" jdbcType="BIT" property="highVoltageFlag" />
+    <result column="touch_rule" jdbcType="VARCHAR" property="touchRule" />
+    <result column="plan_prd_time" jdbcType="TIMESTAMP" property="planPrdTime" />
+    <result column="change_prd_time" jdbcType="TIMESTAMP" property="changePrdTime" />
+    <result column="change_content" jdbcType="VARCHAR" property="changeContent" />
+    <result column="special_approval_description" jdbcType="VARCHAR" property="specialApprovalDescription" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, change_code, prd_type, project_code, project_name, source_type, req_order, defect_order, 
+    task, change_system, replenish_change_flag, change_type, replenish_change_type, prd_mode, 
+    involved_trade_remold, applicant, applicant_name, module, dept, dept_name, window_date, 
+    window_type, urgent_flag, cause, develop_version, version_status, test_report, risk_assess_report, 
+    online_process, verify_report, receiving_report, other_doc, deploy_situation, special_application, 
+    involved_org, special_approval_type, project_type, special_approval_cause, involved_account_flag, 
+    online_time, strategic_plan_type, status, high_voltage_flag, touch_rule, plan_prd_time, 
+    change_prd_time, change_content, special_approval_description, gmt_create, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prdmgr_bu_changeorder
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from prdmgr_bu_changeorder
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuChangeorder" useGeneratedKeys="true">
+    insert into prdmgr_bu_changeorder (change_code, prd_type, project_code, 
+      project_name, source_type, req_order, 
+      defect_order, task, change_system, 
+      replenish_change_flag, change_type, replenish_change_type, 
+      prd_mode, involved_trade_remold, applicant, 
+      applicant_name, module, dept, 
+      dept_name, window_date, window_type, 
+      urgent_flag, cause, develop_version, 
+      version_status, test_report, risk_assess_report, 
+      online_process, verify_report, receiving_report, 
+      other_doc, deploy_situation, special_application, 
+      involved_org, special_approval_type, project_type, 
+      special_approval_cause, involved_account_flag, 
+      online_time, strategic_plan_type, status, 
+      high_voltage_flag, touch_rule, plan_prd_time, 
+      change_prd_time, change_content, special_approval_description, 
+      gmt_create, gmt_modified)
+    values (#{changeCode,jdbcType=VARCHAR}, #{prdType,jdbcType=TINYINT}, #{projectCode,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{sourceType,jdbcType=TINYINT}, #{reqOrder,jdbcType=VARCHAR}, 
+      #{defectOrder,jdbcType=VARCHAR}, #{task,jdbcType=VARCHAR}, #{changeSystem,jdbcType=VARCHAR}, 
+      #{replenishChangeFlag,jdbcType=BIT}, #{changeType,jdbcType=TINYINT}, #{replenishChangeType,jdbcType=TINYINT}, 
+      #{prdMode,jdbcType=TINYINT}, #{involvedTradeRemold,jdbcType=BIT}, #{applicant,jdbcType=VARCHAR}, 
+      #{applicantName,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR}, 
+      #{deptName,jdbcType=VARCHAR}, #{windowDate,jdbcType=DATE}, #{windowType,jdbcType=TINYINT}, 
+      #{urgentFlag,jdbcType=BIT}, #{cause,jdbcType=VARCHAR}, #{developVersion,jdbcType=VARCHAR}, 
+      #{versionStatus,jdbcType=TINYINT}, #{testReport,jdbcType=VARCHAR}, #{riskAssessReport,jdbcType=VARCHAR}, 
+      #{onlineProcess,jdbcType=VARCHAR}, #{verifyReport,jdbcType=VARCHAR}, #{receivingReport,jdbcType=VARCHAR}, 
+      #{otherDoc,jdbcType=VARCHAR}, #{deploySituation,jdbcType=TINYINT}, #{specialApplication,jdbcType=VARCHAR}, 
+      #{involvedOrg,jdbcType=TINYINT}, #{specialApprovalType,jdbcType=TINYINT}, #{projectType,jdbcType=TINYINT}, 
+      #{specialApprovalCause,jdbcType=VARCHAR}, #{involvedAccountFlag,jdbcType=BIT}, 
+      #{onlineTime,jdbcType=TIMESTAMP}, #{strategicPlanType,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, 
+      #{highVoltageFlag,jdbcType=BIT}, #{touchRule,jdbcType=VARCHAR}, #{planPrdTime,jdbcType=TIMESTAMP}, 
+      #{changePrdTime,jdbcType=TIMESTAMP}, #{changeContent,jdbcType=VARCHAR}, #{specialApprovalDescription,jdbcType=VARCHAR}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuChangeorder" useGeneratedKeys="true">
+    insert into prdmgr_bu_changeorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="changeCode != null">
+        change_code,
+      </if>
+      <if test="prdType != null">
+        prd_type,
+      </if>
+      <if test="projectCode != null">
+        project_code,
+      </if>
+      <if test="projectName != null">
+        project_name,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="reqOrder != null">
+        req_order,
+      </if>
+      <if test="defectOrder != null">
+        defect_order,
+      </if>
+      <if test="task != null">
+        task,
+      </if>
+      <if test="changeSystem != null">
+        change_system,
+      </if>
+      <if test="replenishChangeFlag != null">
+        replenish_change_flag,
+      </if>
+      <if test="changeType != null">
+        change_type,
+      </if>
+      <if test="replenishChangeType != null">
+        replenish_change_type,
+      </if>
+      <if test="prdMode != null">
+        prd_mode,
+      </if>
+      <if test="involvedTradeRemold != null">
+        involved_trade_remold,
+      </if>
+      <if test="applicant != null">
+        applicant,
+      </if>
+      <if test="applicantName != null">
+        applicant_name,
+      </if>
+      <if test="module != null">
+        module,
+      </if>
+      <if test="dept != null">
+        dept,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="windowDate != null">
+        window_date,
+      </if>
+      <if test="windowType != null">
+        window_type,
+      </if>
+      <if test="urgentFlag != null">
+        urgent_flag,
+      </if>
+      <if test="cause != null">
+        cause,
+      </if>
+      <if test="developVersion != null">
+        develop_version,
+      </if>
+      <if test="versionStatus != null">
+        version_status,
+      </if>
+      <if test="testReport != null">
+        test_report,
+      </if>
+      <if test="riskAssessReport != null">
+        risk_assess_report,
+      </if>
+      <if test="onlineProcess != null">
+        online_process,
+      </if>
+      <if test="verifyReport != null">
+        verify_report,
+      </if>
+      <if test="receivingReport != null">
+        receiving_report,
+      </if>
+      <if test="otherDoc != null">
+        other_doc,
+      </if>
+      <if test="deploySituation != null">
+        deploy_situation,
+      </if>
+      <if test="specialApplication != null">
+        special_application,
+      </if>
+      <if test="involvedOrg != null">
+        involved_org,
+      </if>
+      <if test="specialApprovalType != null">
+        special_approval_type,
+      </if>
+      <if test="projectType != null">
+        project_type,
+      </if>
+      <if test="specialApprovalCause != null">
+        special_approval_cause,
+      </if>
+      <if test="involvedAccountFlag != null">
+        involved_account_flag,
+      </if>
+      <if test="onlineTime != null">
+        online_time,
+      </if>
+      <if test="strategicPlanType != null">
+        strategic_plan_type,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="highVoltageFlag != null">
+        high_voltage_flag,
+      </if>
+      <if test="touchRule != null">
+        touch_rule,
+      </if>
+      <if test="planPrdTime != null">
+        plan_prd_time,
+      </if>
+      <if test="changePrdTime != null">
+        change_prd_time,
+      </if>
+      <if test="changeContent != null">
+        change_content,
+      </if>
+      <if test="specialApprovalDescription != null">
+        special_approval_description,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="changeCode != null">
+        #{changeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        #{prdType,jdbcType=TINYINT},
+      </if>
+      <if test="projectCode != null">
+        #{projectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="reqOrder != null">
+        #{reqOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="defectOrder != null">
+        #{defectOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="task != null">
+        #{task,jdbcType=VARCHAR},
+      </if>
+      <if test="changeSystem != null">
+        #{changeSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="replenishChangeFlag != null">
+        #{replenishChangeFlag,jdbcType=BIT},
+      </if>
+      <if test="changeType != null">
+        #{changeType,jdbcType=TINYINT},
+      </if>
+      <if test="replenishChangeType != null">
+        #{replenishChangeType,jdbcType=TINYINT},
+      </if>
+      <if test="prdMode != null">
+        #{prdMode,jdbcType=TINYINT},
+      </if>
+      <if test="involvedTradeRemold != null">
+        #{involvedTradeRemold,jdbcType=BIT},
+      </if>
+      <if test="applicant != null">
+        #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantName != null">
+        #{applicantName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="windowDate != null">
+        #{windowDate,jdbcType=DATE},
+      </if>
+      <if test="windowType != null">
+        #{windowType,jdbcType=TINYINT},
+      </if>
+      <if test="urgentFlag != null">
+        #{urgentFlag,jdbcType=BIT},
+      </if>
+      <if test="cause != null">
+        #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="developVersion != null">
+        #{developVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="versionStatus != null">
+        #{versionStatus,jdbcType=TINYINT},
+      </if>
+      <if test="testReport != null">
+        #{testReport,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAssessReport != null">
+        #{riskAssessReport,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineProcess != null">
+        #{onlineProcess,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyReport != null">
+        #{verifyReport,jdbcType=VARCHAR},
+      </if>
+      <if test="receivingReport != null">
+        #{receivingReport,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDoc != null">
+        #{otherDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="deploySituation != null">
+        #{deploySituation,jdbcType=TINYINT},
+      </if>
+      <if test="specialApplication != null">
+        #{specialApplication,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedOrg != null">
+        #{involvedOrg,jdbcType=TINYINT},
+      </if>
+      <if test="specialApprovalType != null">
+        #{specialApprovalType,jdbcType=TINYINT},
+      </if>
+      <if test="projectType != null">
+        #{projectType,jdbcType=TINYINT},
+      </if>
+      <if test="specialApprovalCause != null">
+        #{specialApprovalCause,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedAccountFlag != null">
+        #{involvedAccountFlag,jdbcType=BIT},
+      </if>
+      <if test="onlineTime != null">
+        #{onlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="strategicPlanType != null">
+        #{strategicPlanType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="highVoltageFlag != null">
+        #{highVoltageFlag,jdbcType=BIT},
+      </if>
+      <if test="touchRule != null">
+        #{touchRule,jdbcType=VARCHAR},
+      </if>
+      <if test="planPrdTime != null">
+        #{planPrdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changePrdTime != null">
+        #{changePrdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeContent != null">
+        #{changeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="specialApprovalDescription != null">
+        #{specialApprovalDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanzh.model.PrdmgrBuChangeorder">
+    update prdmgr_bu_changeorder
+    <set>
+      <if test="changeCode != null">
+        change_code = #{changeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="prdType != null">
+        prd_type = #{prdType,jdbcType=TINYINT},
+      </if>
+      <if test="projectCode != null">
+        project_code = #{projectCode,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="reqOrder != null">
+        req_order = #{reqOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="defectOrder != null">
+        defect_order = #{defectOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="task != null">
+        task = #{task,jdbcType=VARCHAR},
+      </if>
+      <if test="changeSystem != null">
+        change_system = #{changeSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="replenishChangeFlag != null">
+        replenish_change_flag = #{replenishChangeFlag,jdbcType=BIT},
+      </if>
+      <if test="changeType != null">
+        change_type = #{changeType,jdbcType=TINYINT},
+      </if>
+      <if test="replenishChangeType != null">
+        replenish_change_type = #{replenishChangeType,jdbcType=TINYINT},
+      </if>
+      <if test="prdMode != null">
+        prd_mode = #{prdMode,jdbcType=TINYINT},
+      </if>
+      <if test="involvedTradeRemold != null">
+        involved_trade_remold = #{involvedTradeRemold,jdbcType=BIT},
+      </if>
+      <if test="applicant != null">
+        applicant = #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantName != null">
+        applicant_name = #{applicantName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        module = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        dept = #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="windowDate != null">
+        window_date = #{windowDate,jdbcType=DATE},
+      </if>
+      <if test="windowType != null">
+        window_type = #{windowType,jdbcType=TINYINT},
+      </if>
+      <if test="urgentFlag != null">
+        urgent_flag = #{urgentFlag,jdbcType=BIT},
+      </if>
+      <if test="cause != null">
+        cause = #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="developVersion != null">
+        develop_version = #{developVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="versionStatus != null">
+        version_status = #{versionStatus,jdbcType=TINYINT},
+      </if>
+      <if test="testReport != null">
+        test_report = #{testReport,jdbcType=VARCHAR},
+      </if>
+      <if test="riskAssessReport != null">
+        risk_assess_report = #{riskAssessReport,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineProcess != null">
+        online_process = #{onlineProcess,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyReport != null">
+        verify_report = #{verifyReport,jdbcType=VARCHAR},
+      </if>
+      <if test="receivingReport != null">
+        receiving_report = #{receivingReport,jdbcType=VARCHAR},
+      </if>
+      <if test="otherDoc != null">
+        other_doc = #{otherDoc,jdbcType=VARCHAR},
+      </if>
+      <if test="deploySituation != null">
+        deploy_situation = #{deploySituation,jdbcType=TINYINT},
+      </if>
+      <if test="specialApplication != null">
+        special_application = #{specialApplication,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedOrg != null">
+        involved_org = #{involvedOrg,jdbcType=TINYINT},
+      </if>
+      <if test="specialApprovalType != null">
+        special_approval_type = #{specialApprovalType,jdbcType=TINYINT},
+      </if>
+      <if test="projectType != null">
+        project_type = #{projectType,jdbcType=TINYINT},
+      </if>
+      <if test="specialApprovalCause != null">
+        special_approval_cause = #{specialApprovalCause,jdbcType=VARCHAR},
+      </if>
+      <if test="involvedAccountFlag != null">
+        involved_account_flag = #{involvedAccountFlag,jdbcType=BIT},
+      </if>
+      <if test="onlineTime != null">
+        online_time = #{onlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="strategicPlanType != null">
+        strategic_plan_type = #{strategicPlanType,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="highVoltageFlag != null">
+        high_voltage_flag = #{highVoltageFlag,jdbcType=BIT},
+      </if>
+      <if test="touchRule != null">
+        touch_rule = #{touchRule,jdbcType=VARCHAR},
+      </if>
+      <if test="planPrdTime != null">
+        plan_prd_time = #{planPrdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changePrdTime != null">
+        change_prd_time = #{changePrdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeContent != null">
+        change_content = #{changeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="specialApprovalDescription != null">
+        special_approval_description = #{specialApprovalDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanzh.model.PrdmgrBuChangeorder">
+    update prdmgr_bu_changeorder
+    set change_code = #{changeCode,jdbcType=VARCHAR},
+      prd_type = #{prdType,jdbcType=TINYINT},
+      project_code = #{projectCode,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=TINYINT},
+      req_order = #{reqOrder,jdbcType=VARCHAR},
+      defect_order = #{defectOrder,jdbcType=VARCHAR},
+      task = #{task,jdbcType=VARCHAR},
+      change_system = #{changeSystem,jdbcType=VARCHAR},
+      replenish_change_flag = #{replenishChangeFlag,jdbcType=BIT},
+      change_type = #{changeType,jdbcType=TINYINT},
+      replenish_change_type = #{replenishChangeType,jdbcType=TINYINT},
+      prd_mode = #{prdMode,jdbcType=TINYINT},
+      involved_trade_remold = #{involvedTradeRemold,jdbcType=BIT},
+      applicant = #{applicant,jdbcType=VARCHAR},
+      applicant_name = #{applicantName,jdbcType=VARCHAR},
+      module = #{module,jdbcType=VARCHAR},
+      dept = #{dept,jdbcType=VARCHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      window_date = #{windowDate,jdbcType=DATE},
+      window_type = #{windowType,jdbcType=TINYINT},
+      urgent_flag = #{urgentFlag,jdbcType=BIT},
+      cause = #{cause,jdbcType=VARCHAR},
+      develop_version = #{developVersion,jdbcType=VARCHAR},
+      version_status = #{versionStatus,jdbcType=TINYINT},
+      test_report = #{testReport,jdbcType=VARCHAR},
+      risk_assess_report = #{riskAssessReport,jdbcType=VARCHAR},
+      online_process = #{onlineProcess,jdbcType=VARCHAR},
+      verify_report = #{verifyReport,jdbcType=VARCHAR},
+      receiving_report = #{receivingReport,jdbcType=VARCHAR},
+      other_doc = #{otherDoc,jdbcType=VARCHAR},
+      deploy_situation = #{deploySituation,jdbcType=TINYINT},
+      special_application = #{specialApplication,jdbcType=VARCHAR},
+      involved_org = #{involvedOrg,jdbcType=TINYINT},
+      special_approval_type = #{specialApprovalType,jdbcType=TINYINT},
+      project_type = #{projectType,jdbcType=TINYINT},
+      special_approval_cause = #{specialApprovalCause,jdbcType=VARCHAR},
+      involved_account_flag = #{involvedAccountFlag,jdbcType=BIT},
+      online_time = #{onlineTime,jdbcType=TIMESTAMP},
+      strategic_plan_type = #{strategicPlanType,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      high_voltage_flag = #{highVoltageFlag,jdbcType=BIT},
+      touch_rule = #{touchRule,jdbcType=VARCHAR},
+      plan_prd_time = #{planPrdTime,jdbcType=TIMESTAMP},
+      change_prd_time = #{changePrdTime,jdbcType=TIMESTAMP},
+      change_content = #{changeContent,jdbcType=VARCHAR},
+      special_approval_description = #{specialApprovalDescription,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

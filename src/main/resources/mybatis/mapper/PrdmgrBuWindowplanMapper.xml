@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanzh.mapper.PrdmgrBuWindowplanMapper">
+  <resultMap id="BaseResultMap" type="com.lanzh.model.PrdmgrBuWindowplan">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="window_date" jdbcType="DATE" property="windowDate" />
+    <result column="week" jdbcType="VARCHAR" property="week" />
+    <result column="window_type" jdbcType="TINYINT" property="windowType" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="plan_uat_seal_date" jdbcType="DATE" property="planUatSealDate" />
+    <result column="plan_prd_seal_date" jdbcType="DATE" property="planPrdSealDate" />
+    <result column="window_status" jdbcType="TINYINT" property="windowStatus" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="system_change_req_number" jdbcType="INTEGER" property="systemChangeReqNumber" />
+    <result column="involved_system_number" jdbcType="INTEGER" property="involvedSystemNumber" />
+    <result column="involved_req_number" jdbcType="INTEGER" property="involvedReqNumber" />
+    <result column="involved_defect_number" jdbcType="INTEGER" property="involvedDefectNumber" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, window_date, week, window_type, version, plan_uat_seal_date, plan_prd_seal_date, 
+    window_status, status, system_change_req_number, involved_system_number, involved_req_number, 
+    involved_defect_number, gmt_create, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prdmgr_bu_windowplan
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from prdmgr_bu_windowplan
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuWindowplan" useGeneratedKeys="true">
+    insert into prdmgr_bu_windowplan (window_date, week, window_type, 
+      version, plan_uat_seal_date, plan_prd_seal_date, 
+      window_status, status, system_change_req_number, 
+      involved_system_number, involved_req_number, 
+      involved_defect_number, gmt_create, gmt_modified
+      )
+    values (#{windowDate,jdbcType=DATE}, #{week,jdbcType=VARCHAR}, #{windowType,jdbcType=TINYINT}, 
+      #{version,jdbcType=VARCHAR}, #{planUatSealDate,jdbcType=DATE}, #{planPrdSealDate,jdbcType=DATE}, 
+      #{windowStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{systemChangeReqNumber,jdbcType=INTEGER}, 
+      #{involvedSystemNumber,jdbcType=INTEGER}, #{involvedReqNumber,jdbcType=INTEGER}, 
+      #{involvedDefectNumber,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuWindowplan" useGeneratedKeys="true">
+    insert into prdmgr_bu_windowplan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="windowDate != null">
+        window_date,
+      </if>
+      <if test="week != null">
+        week,
+      </if>
+      <if test="windowType != null">
+        window_type,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="planUatSealDate != null">
+        plan_uat_seal_date,
+      </if>
+      <if test="planPrdSealDate != null">
+        plan_prd_seal_date,
+      </if>
+      <if test="windowStatus != null">
+        window_status,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="systemChangeReqNumber != null">
+        system_change_req_number,
+      </if>
+      <if test="involvedSystemNumber != null">
+        involved_system_number,
+      </if>
+      <if test="involvedReqNumber != null">
+        involved_req_number,
+      </if>
+      <if test="involvedDefectNumber != null">
+        involved_defect_number,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="windowDate != null">
+        #{windowDate,jdbcType=DATE},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="windowType != null">
+        #{windowType,jdbcType=TINYINT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="planUatSealDate != null">
+        #{planUatSealDate,jdbcType=DATE},
+      </if>
+      <if test="planPrdSealDate != null">
+        #{planPrdSealDate,jdbcType=DATE},
+      </if>
+      <if test="windowStatus != null">
+        #{windowStatus,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="systemChangeReqNumber != null">
+        #{systemChangeReqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedSystemNumber != null">
+        #{involvedSystemNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedReqNumber != null">
+        #{involvedReqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedDefectNumber != null">
+        #{involvedDefectNumber,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanzh.model.PrdmgrBuWindowplan">
+    update prdmgr_bu_windowplan
+    <set>
+      <if test="windowDate != null">
+        window_date = #{windowDate,jdbcType=DATE},
+      </if>
+      <if test="week != null">
+        week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="windowType != null">
+        window_type = #{windowType,jdbcType=TINYINT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="planUatSealDate != null">
+        plan_uat_seal_date = #{planUatSealDate,jdbcType=DATE},
+      </if>
+      <if test="planPrdSealDate != null">
+        plan_prd_seal_date = #{planPrdSealDate,jdbcType=DATE},
+      </if>
+      <if test="windowStatus != null">
+        window_status = #{windowStatus,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="systemChangeReqNumber != null">
+        system_change_req_number = #{systemChangeReqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedSystemNumber != null">
+        involved_system_number = #{involvedSystemNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedReqNumber != null">
+        involved_req_number = #{involvedReqNumber,jdbcType=INTEGER},
+      </if>
+      <if test="involvedDefectNumber != null">
+        involved_defect_number = #{involvedDefectNumber,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanzh.model.PrdmgrBuWindowplan">
+    update prdmgr_bu_windowplan
+    set window_date = #{windowDate,jdbcType=DATE},
+      week = #{week,jdbcType=VARCHAR},
+      window_type = #{windowType,jdbcType=TINYINT},
+      version = #{version,jdbcType=VARCHAR},
+      plan_uat_seal_date = #{planUatSealDate,jdbcType=DATE},
+      plan_prd_seal_date = #{planPrdSealDate,jdbcType=DATE},
+      window_status = #{windowStatus,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      system_change_req_number = #{systemChangeReqNumber,jdbcType=INTEGER},
+      involved_system_number = #{involvedSystemNumber,jdbcType=INTEGER},
+      involved_req_number = #{involvedReqNumber,jdbcType=INTEGER},
+      involved_defect_number = #{involvedDefectNumber,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

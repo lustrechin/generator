@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanzh.mapper.PrdmgrBuWindowchildrenMapper">
+  <resultMap id="BaseResultMap" type="com.lanzh.model.PrdmgrBuWindowchildren">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="change_code" jdbcType="VARCHAR" property="changeCode" />
+    <result column="source_type" jdbcType="TINYINT" property="sourceType" />
+    <result column="req_order" jdbcType="VARCHAR" property="reqOrder" />
+    <result column="defect_order" jdbcType="VARCHAR" property="defectOrder" />
+    <result column="change_system" jdbcType="VARCHAR" property="changeSystem" />
+    <result column="applicant" jdbcType="VARCHAR" property="applicant" />
+    <result column="applicant_name" jdbcType="VARCHAR" property="applicantName" />
+    <result column="module" jdbcType="VARCHAR" property="module" />
+    <result column="prd_situation" jdbcType="TINYINT" property="prdSituation" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, change_code, source_type, req_order, defect_order, change_system, applicant, 
+    applicant_name, module, prd_situation, gmt_create, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prdmgr_bu_windowchildren
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from prdmgr_bu_windowchildren
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuWindowchildren" useGeneratedKeys="true">
+    insert into prdmgr_bu_windowchildren (change_code, source_type, req_order, 
+      defect_order, change_system, applicant, 
+      applicant_name, module, prd_situation, 
+      gmt_create, gmt_modified)
+    values (#{changeCode,jdbcType=VARCHAR}, #{sourceType,jdbcType=TINYINT}, #{reqOrder,jdbcType=VARCHAR}, 
+      #{defectOrder,jdbcType=VARCHAR}, #{changeSystem,jdbcType=VARCHAR}, #{applicant,jdbcType=VARCHAR}, 
+      #{applicantName,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR}, #{prdSituation,jdbcType=TINYINT}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.lanzh.model.PrdmgrBuWindowchildren" useGeneratedKeys="true">
+    insert into prdmgr_bu_windowchildren
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="changeCode != null">
+        change_code,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="reqOrder != null">
+        req_order,
+      </if>
+      <if test="defectOrder != null">
+        defect_order,
+      </if>
+      <if test="changeSystem != null">
+        change_system,
+      </if>
+      <if test="applicant != null">
+        applicant,
+      </if>
+      <if test="applicantName != null">
+        applicant_name,
+      </if>
+      <if test="module != null">
+        module,
+      </if>
+      <if test="prdSituation != null">
+        prd_situation,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="changeCode != null">
+        #{changeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="reqOrder != null">
+        #{reqOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="defectOrder != null">
+        #{defectOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="changeSystem != null">
+        #{changeSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null">
+        #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantName != null">
+        #{applicantName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="prdSituation != null">
+        #{prdSituation,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lanzh.model.PrdmgrBuWindowchildren">
+    update prdmgr_bu_windowchildren
+    <set>
+      <if test="changeCode != null">
+        change_code = #{changeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=TINYINT},
+      </if>
+      <if test="reqOrder != null">
+        req_order = #{reqOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="defectOrder != null">
+        defect_order = #{defectOrder,jdbcType=VARCHAR},
+      </if>
+      <if test="changeSystem != null">
+        change_system = #{changeSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null">
+        applicant = #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="applicantName != null">
+        applicant_name = #{applicantName,jdbcType=VARCHAR},
+      </if>
+      <if test="module != null">
+        module = #{module,jdbcType=VARCHAR},
+      </if>
+      <if test="prdSituation != null">
+        prd_situation = #{prdSituation,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lanzh.model.PrdmgrBuWindowchildren">
+    update prdmgr_bu_windowchildren
+    set change_code = #{changeCode,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=TINYINT},
+      req_order = #{reqOrder,jdbcType=VARCHAR},
+      defect_order = #{defectOrder,jdbcType=VARCHAR},
+      change_system = #{changeSystem,jdbcType=VARCHAR},
+      applicant = #{applicant,jdbcType=VARCHAR},
+      applicant_name = #{applicantName,jdbcType=VARCHAR},
+      module = #{module,jdbcType=VARCHAR},
+      prd_situation = #{prdSituation,jdbcType=TINYINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
